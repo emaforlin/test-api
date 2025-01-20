@@ -19,8 +19,8 @@ jobs:
         gcloud auth configure-docker us-central1-docker.pkg.dev
     - name: Construir y enviar la imagen a Artifact Registry 
       run: |
-        docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app .
-        docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app   
+        docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/emaforlin/test-api .
+        docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/emaforlin/test-api   
     - name: Desplegar en Cloud Run 
       run: |
         gcloud run deploy mi-app \
