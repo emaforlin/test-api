@@ -24,7 +24,7 @@ jobs:
     - name: Desplegar en Cloud Run 
       run: |
         gcloud run deploy mi-app \
-        --image us-central1- docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app \
+        --image us-central1- docker.pkg.dev/${{ secrets.GCP_PROJECT }}/emaforlin/test-api\
         --platform managed \
         --region us-central1 \
         --allow-unauthenticated
