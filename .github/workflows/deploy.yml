@@ -16,14 +16,14 @@ jobs:
         service_account_key: ${{secrets.GCP_SA_KEY }} 
     - name: Autenticar Docker con Artifact Registry 
       run: |
-      gcloud auth configure-docker us-central1-docker.pkg.dev
+        gcloud auth configure-docker us-central1-docker.pkg.dev
     - name: Construir y enviar la imagen a Artifact Registry 
       run: |
-      docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app .
-      docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app   
+        docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app .
+        docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app   
     - name: Desplegar en Cloud Run 
       run: |
-      gcloud run deploy mi-app \
+        gcloud run deploy mi-app \
         --image us-central1- docker.pkg.dev/${{ secrets.GCP_PROJECT }}/mi-repo/mi-app \
         --platform managed \
         --region us-central1 \
